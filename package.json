@@ -6,7 +6,8 @@
   "author": "Haixiang <haixiang6123@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "parse": "node -r ts-node/register --inspect-brk let_to_parser.ts"
+    "parse": "node -r ts-node/register let_to_parser.ts",
+    "parse:debug": "node -r ts-node/register --inspect-brk let_to_parser.ts"
   },
   "dependencies": {
     "@babel/core": "7.12.3",
