@@ -10,10 +10,10 @@
     "parse:debug": "node -r ts-node/register --inspect-brk let_to_parser.ts"
   },
   "dependencies": {
-    "@babel/core": "7.12.3",
+    "@babel/core": "^7.14.2",
     "@babel/generator": "7.12.5",
     "@babel/parser": "7.12.5",
-    "@babel/preset-env": "7.12.1",
+    "@babel/preset-env": "^7.14.2",
     "@babel/traverse": "7.12.5",
     "@types/babel__traverse": "7.0.15",
     "ts-node": "9.0.0",

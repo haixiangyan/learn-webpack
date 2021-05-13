@@ -1,19 +1,12 @@
 import {parse} from '@babel/core'
-import traverse from '@babel/traverse'
-import generate from '@babel/generator'
+import * as babel from '@babel/core'
+import * as fs from 'fs'
 
-const code = `let a = 'a'; let b = 'b'`
+const code = fs.readFileSync('./test.js').toString()
 const ast = parse(code, {sourceType: 'module'})
 
-traverse(ast, {
-  enter: item => {
-    if (item.node.type === 'VariableDeclaration') {
-      if (item.node.kind === 'let') {
-        item.node.kind = 'var'
-      }
-    }
-  }
+const result = babel.transformFromAstSync(ast, code, {
+  presets: ['@babel/preset-env']
 })
 
-const result = generate(ast, {}, code)
-console.log(result.code)
+fs.writeFileSync('./file_to_es5.ts', result.code)
